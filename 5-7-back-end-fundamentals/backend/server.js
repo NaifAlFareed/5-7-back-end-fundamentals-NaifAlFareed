@@ -24,6 +24,11 @@ app.get('/api/students', (req, res) => {
   res.json(students);
 });
 
+// Health check (proof of work)
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', by: 'Naif', at: new Date().toISOString() });
+});
+
 // Create: client sends data
 app.post('/api/students', (req, res) => {
   const { name } = req.body || {};
